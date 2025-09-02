@@ -1,0 +1,7 @@
+Port	Protocol / Service	SOC Relevance
+80	HTTP	Web traffic (look for anomalies, injections, malware C2).
+443	HTTPS	Encrypted web traffic (common for phishing/malware C2).
+22	SSH	Remote admin (brute force, unauthorized access).
+53	DNS	Should be UDP but can use TCP (DNS tunneling, data exfil).
+25	SMTP	Email traffic (phishing, spam, malware delivery).
+3389	RDP	Remote Desktop (brute force, lateral movement).
