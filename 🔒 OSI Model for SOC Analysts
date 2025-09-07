@@ -1,0 +1,97 @@
+The OSI (Open Systems Interconnection) model is a foundational networking concept, but for SOC Analysts it becomes a practical framework to map attacks, logs, and detection methods across different layers.
+
+This write-up consolidates the core functions, SOC relevance, common attacks, tools, and methodologies for each OSI layer.
+
+🛰️ Layer 1 – Physical Layer
+
+Core Functions: Transmission of raw bits over physical medium (cables, NICs, signals).
+SOC Role:
+
+Detect hardware tampering, rogue device connections.
+
+Correlate outages with physical security events (power loss, unauthorized access).
+Attacks: Wiretapping, jamming, rogue USB drops.
+Tools: NAC (Cisco ISE, Aruba ClearPass), CCTV integrations, SIEM, forensic USB tools.
+Methodology: Baseline device inventory, detect rogue devices, isolate ports, escalate infra issues.
+
+🔗 Layer 2 – Data Link Layer
+
+Core Functions: Node-to-node communication using MAC addresses, ARP, VLANs.
+SOC Role:
+
+Monitor ARP spoofing, VLAN hopping, rogue access points.
+
+Detect MAC flooding, duplicate IP/MAC conflicts.
+Attacks: ARP poisoning, MAC spoofing, VLAN hopping.
+Tools: Wireshark, Snort/Suricata, Nmap (ARP scans), NAC solutions.
+Methodology: Baseline VLAN/MAC activity, detect abnormal ARP traffic, quarantine rogue devices.
+
+🌍 Layer 3 – Network Layer
+
+Core Functions: Logical addressing (IP), routing, packet forwarding.
+SOC Role:
+
+IP-based threat detection, firewall log analysis.
+
+Spot DDoS, IP spoofing, tunneling attempts.
+Attacks: DoS/DDoS, scanning, IP spoofing, ICMP tunneling.
+Tools: SIEM (Splunk, QRadar), NetFlow, Zeek, Threat Intel (VirusTotal, MISP).
+Methodology: Correlate SIEM alerts with TI feeds, block malicious IPs, detect abnormal routing.
+
+Layer 4 – Transport Layer
+
+Core Functions: End-to-end communication, segmentation, TCP/UDP, ports.
+SOC Role:
+
+Monitor port scanning, brute-force, SYN floods.
+
+Detect abnormal service/port activity.
+Attacks: Port scanning, SYN floods, UDP amplification, session hijacking.
+Tools: IDS/IPS (Snort, Suricata), Nmap, DDoS protection (Arbor, Cloudflare), Wireshark.
+Methodology: Baseline normal ports, detect unusual connections, block malicious traffic.
+
+🔑 Layer 5 – Session Layer
+
+Core Functions: Establishes, manages, and terminates sessions (RDP, SMB, VPN).
+SOC Role:
+
+Monitor VPN, RDP, SMB, Kerberos sessions.
+
+Detect brute force, session hijacking, persistence.
+Attacks: Credential stuffing, brute force, Pass-the-Ticket, session hijacking.
+Tools: SIEM, EDR/XDR (CrowdStrike, SentinelOne), VPN logs, Zeek.
+Methodology: Monitor login anomalies (impossible travel, concurrent sessions), terminate suspicious sessions, reset creds.
+
+Layer 6 – Presentation Layer
+
+Core Functions: Data formatting, encryption/decryption, encoding/decoding, compression.
+SOC Role:
+
+Monitor SSL/TLS usage, detect malicious payload encoding.
+
+Spot obfuscation and tunneling.
+Attacks: SSL stripping, TLS abuse, Base64 obfuscation, DNS tunneling.
+Tools: DPI (Palo Alto, Fortinet), IDS (Suricata, Zeek), Malware Sandboxing (Cuckoo, Any.Run).
+Methodology: Detect weak/abnormal encryption, decode suspicious payloads, block unauthorized encrypted channels.
+
+🌐 Layer 7 – Application Layer
+
+Core Functions: End-user services (HTTP, DNS, SMTP, FTP, LDAP).
+SOC Role:
+
+Monitor web, DNS, and email logs.
+
+Detect phishing, web exploits, DNS tunneling, data exfiltration.
+Attacks: SQL injection, XSS, phishing, DNS tunneling, malware via email.
+Tools: WAF (Cloudflare, ModSecurity), Email Gateways (Proofpoint, Mimecast), DNS Security (Umbrella, Infoblox), SIEM.
+Methodology: Baseline app usage, correlate web/DNS/email logs, sandbox suspicious files, block malicious domains/URLs.
+
+📌 Key Takeaways for SOC Analysts
+
+Most critical layers: 3 (Network), 4 (Transport), and 7 (Application).
+
+Baseline + Detection + Correlation + Response is the methodology across all layers.
+
+Tools like SIEM, IDS/IPS, NAC, WAF, EDR, DNS/email security map directly to OSI layers.
+
+Understanding the OSI model helps triage faster, hunt smarter, and explain incidents clearly in interviews or real SOC operations.
