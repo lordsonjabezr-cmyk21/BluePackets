@@ -91,4 +91,4 @@ Most critical layers: 3 (Network), 4 (Transport), and 7 (Application).
 Baseline + Detection + Correlation + Response is the methodology across all layers.
 Tools like SIEM, IDS/IPS, NAC, WAF, EDR, DNS/email security map directly to OSI layers.
 
-Understanding the OSI model helps triage faster, hunt smarter, and explain incidents clearly in interviews or real SOC operations.
+Understanding the OSI model helps triage faster, hunt smarter, and explain incidents clearly in real SOC operations.
