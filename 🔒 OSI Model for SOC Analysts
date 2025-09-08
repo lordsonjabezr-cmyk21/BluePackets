@@ -52,7 +52,7 @@ Methodology: Baseline normal ports, detect unusual connections, block malicious 
 
 Layer 5 – Session Layer
 
-Core Functions: Establishes, manages, and terminates sessions (RDP, SMB, VPN).
+Core Functions: Establishes, manages, and terminates sessions.
 SOC Role:
 
 Monitor VPN, RDP, SMB, Kerberos sessions.
@@ -60,7 +60,7 @@ Monitor VPN, RDP, SMB, Kerberos sessions.
 Detect brute force, session hijacking, persistence.
 Attacks: Credential stuffing, brute force, Pass-the-Ticket, session hijacking.
 Tools: SIEM, EDR/XDR (CrowdStrike, SentinelOne), VPN logs, Zeek.
-Methodology: Monitor login anomalies (impossible travel, concurrent sessions), terminate suspicious sessions, reset creds.
+Methodology: Monitor login anomalies (impossible travel, concurrent sessions), terminate suspicious sessions, reset credentials.
 
 Layer 6 – Presentation Layer
 
@@ -87,11 +87,8 @@ Tools: WAF (Cloudflare, ModSecurity), Email Gateways (Proofpoint, Mimecast), DNS
 Methodology: Baseline app usage, correlate web/DNS/email logs, sandbox suspicious files, block malicious domains/URLs.
 
 Key Takeaways for SOC Analysts
-
 Most critical layers: 3 (Network), 4 (Transport), and 7 (Application).
-
 Baseline + Detection + Correlation + Response is the methodology across all layers.
-
 Tools like SIEM, IDS/IPS, NAC, WAF, EDR, DNS/email security map directly to OSI layers.
 
 Understanding the OSI model helps triage faster, hunt smarter, and explain incidents clearly in interviews or real SOC operations.
