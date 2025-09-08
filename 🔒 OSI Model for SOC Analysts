@@ -2,7 +2,7 @@ The OSI (Open Systems Interconnection) model is a foundational networking concep
 
 This write-up consolidates the core functions, SOC relevance, common attacks, tools, and methodologies for each OSI layer.
 
-🛰️ Layer 1 – Physical Layer
+Layer 1 – Physical Layer
 
 Core Functions: Transmission of raw bits over physical medium (cables, NICs, signals).
 SOC Role:
@@ -14,7 +14,7 @@ Attacks: Wiretapping, jamming, rogue USB drops.
 Tools: NAC (Cisco ISE, Aruba ClearPass), CCTV integrations, SIEM, forensic USB tools.
 Methodology: Baseline device inventory, detect rogue devices, isolate ports, escalate infra issues.
 
-🔗 Layer 2 – Data Link Layer
+Layer 2 – Data Link Layer
 
 Core Functions: Node-to-node communication using MAC addresses, ARP, VLANs.
 SOC Role:
@@ -26,7 +26,7 @@ Attacks: ARP poisoning, MAC spoofing, VLAN hopping.
 Tools: Wireshark, Snort/Suricata, Nmap (ARP scans), NAC solutions.
 Methodology: Baseline VLAN/MAC activity, detect abnormal ARP traffic, quarantine rogue devices.
 
-🌍 Layer 3 – Network Layer
+Layer 3 – Network Layer
 
 Core Functions: Logical addressing (IP), routing, packet forwarding.
 SOC Role:
@@ -50,7 +50,7 @@ Attacks: Port scanning, SYN floods, UDP amplification, session hijacking.
 Tools: IDS/IPS (Snort, Suricata), Nmap, DDoS protection (Arbor, Cloudflare), Wireshark.
 Methodology: Baseline normal ports, detect unusual connections, block malicious traffic.
 
-🔑 Layer 5 – Session Layer
+Layer 5 – Session Layer
 
 Core Functions: Establishes, manages, and terminates sessions (RDP, SMB, VPN).
 SOC Role:
@@ -86,7 +86,7 @@ Attacks: SQL injection, XSS, phishing, DNS tunneling, malware via email.
 Tools: WAF (Cloudflare, ModSecurity), Email Gateways (Proofpoint, Mimecast), DNS Security (Umbrella, Infoblox), SIEM.
 Methodology: Baseline app usage, correlate web/DNS/email logs, sandbox suspicious files, block malicious domains/URLs.
 
-📌 Key Takeaways for SOC Analysts
+Key Takeaways for SOC Analysts
 
 Most critical layers: 3 (Network), 4 (Transport), and 7 (Application).
 
