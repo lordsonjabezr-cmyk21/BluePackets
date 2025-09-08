@@ -1,0 +1,50 @@
+🌐 What is DNS Tunneling?
+DNS tunneling is when attackers misuse the DNS protocol to secretly send or receive data.
+Normally, DNS just converts website names (like google.com) into IP addresses.
+With tunneling, attackers hide commands or stolen data inside DNS queries and responses — turning normal DNS traffic into a covert communication channel.
+
+How It Works :
+->Attacker owns a domain (e.g.,bad-domain.com) and sets up a DNS server.
+->Victim’s computer is infected with malware.
+Malware hides data inside DNS queries.
+Example:
+dXNlcjpwYXNzLmJhZC1kb21haW4uY29t
+->looks like gibberish but actually encodes user:pass.
+The query reaches the attacker’s DNS server.
+The attacker decodes the hidden data and may send back instructions inside the DNS response (like TXT records).
+
+OSI Layer View
+Layer 7 (Application): DNS is the protocol being abused.
+Layer 4 (Transport): Runs over UDP/TCP port 53.
+Layer 3 (Network): Just carries the packets.
+
+
+As a SOC analyst, focus is on Layer 7 — DNS payload inspection.
+
+How to Spot DNS Tunneling
+
+->Look for unusual DNS behavior:
+->Very long or random-looking subdomains.
+->Frequent queries to the same domain.
+->Lots of TXT record requests.
+->Queries that look like encoded strings (Base64/Base32).
+->Beaconing patterns (queries sent at regular intervals).
+->Excessive NXDOMAIN responses (failed lookups).
+
+🛡️ SOC Response Steps
+
+->Detect – SIEM alert for suspicious DNS traffic.
+->Validate – Check domain with threat intel.
+->Contain – Block malicious domain/IP at DNS or firewall.
+->Eradicate – Clean malware from the infected host.
+->Recover – Restore systems and monitor DNS more closely.
+->Improve – Add new detection rules (query length, entropy, TXT lookups).
+
+
+
+
+Key Takeaway
+
+DNS tunneling is like sending secret messages in plain sight.
+It abuses a protocol that almost every network allows.
+As a SOC analyst, spotting the weird patterns in DNS traffic can uncover hidden threats.
